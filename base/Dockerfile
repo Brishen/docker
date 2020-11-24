@@ -1,5 +1,4 @@
 FROM python:slim
-LABEL maintainer="Sphinx Team <https://www.sphinx-doc.org/>"
 
 WORKDIR /docs
 RUN apt-get update \
@@ -12,6 +11,6 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m pip install --no-cache-dir -U pip
-RUN python3 -m pip install --no-cache-dir Sphinx==3.3.1 Pillow
+RUN python3 -m pip install --no-cache-dir Sphinx Pillow sphinxcontrib-confluencebuilder rinohtype sphinx-click pygments click sphinx-markdown-builder
 
 CMD ["make", "html"]
